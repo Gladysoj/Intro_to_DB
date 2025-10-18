@@ -1,18 +1,15 @@
--- alx_book_store.sql
--- SQL script to create the alx_book_store database and its tables
--- All keywords are in UPPERCASE as requested
 
 DROP DATABASE IF EXISTS alx_book_store;
 CREATE DATABASE IF NOT EXISTS alx_book_store;
 USE alx_book_store;
 
--- AUTHORS TABLE
+
 CREATE TABLE IF NOT EXISTS Authors (
   author_id INT AUTO_INCREMENT PRIMARY KEY,
   author_name VARCHAR(215) NOT NULL
 ) ENGINE=InnoDB;
 
--- BOOKS TABLE
+
 CREATE TABLE IF NOT EXISTS Books (
   book_id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(130) NOT NULL,
@@ -23,7 +20,7 @@ CREATE TABLE IF NOT EXISTS Books (
     ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
--- CUSTOMERS TABLE
+
 CREATE TABLE IF NOT EXISTS Customers (
   customer_id INT AUTO_INCREMENT PRIMARY KEY,
   customer_name VARCHAR(215) NOT NULL,
@@ -31,7 +28,7 @@ CREATE TABLE IF NOT EXISTS Customers (
   address TEXT
 ) ENGINE=InnoDB;
 
--- ORDERS TABLE
+
 CREATE TABLE IF NOT EXISTS Orders (
   order_id INT AUTO_INCREMENT PRIMARY KEY,
   customer_id INT NOT NULL,
@@ -40,7 +37,7 @@ CREATE TABLE IF NOT EXISTS Orders (
     ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
--- ORDER_DETAILS TABLE
+
 CREATE TABLE IF NOT EXISTS Order_Details (
   orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
   order_id INT NOT NULL,
@@ -52,7 +49,7 @@ CREATE TABLE IF NOT EXISTS Order_Details (
     ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
--- SAMPLE DATA (optional) - useful for quick testing
+
 INSERT INTO Authors (author_name) VALUES
 ('Chinua Achebe'),
 ('Jane Austen');
@@ -74,5 +71,5 @@ INSERT INTO Order_Details (order_id, book_id, quantity) VALUES
 (1, 2, 1),
 (2, 2, 3);
 
--- END OF SCRIPT
+
 COMMIT;
